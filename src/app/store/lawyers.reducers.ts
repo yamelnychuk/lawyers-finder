@@ -17,8 +17,7 @@ export interface Lawyer {
     fname: string,
     competencies_name: string,
     avatar_preview_file: string,
-    city_name: string,
-    country: string,
+    law_firm: string,
     phone: string,
     email: string
 }

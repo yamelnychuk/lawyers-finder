@@ -1,17 +1,22 @@
-<div class="col-lg-4 col-md-6"
-    *ngFor="let lawyer of ( lawyersState | async ).lawyers">
-    <div class="card border-info mb-3">
-      <img class="card-img-top" [src]="lawyer.avatar_preview_file" alt="lawyer photo">
+<div class="row">
+    <div class="col-lg-4 col-md-6"
+    *ngFor="let lawyer of ( lawyersState | async ).lawyers"
+    [ngStyle]="{display: isObjectEmpty(lawyer) ? 'none' : ''}">
+    <div class="card border-info mb-3" >
+      <img *ngIf="lawyer.avatar_preview_file" class="card-img-top" [src]="lawyer.avatar_preview_file" alt="lawyer photo">
       <div class="card-body">
         <h5 class="card-title">{{lawyer.fname}} {{lawyer.lname}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Competency: {{ lawyer.competencies_name}}</h6>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text">Firm: {{lawyer.law_firm}}</p>
+        <p class="card-text">Phone: {{lawyer.phone}}</p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <a href="mailto:{{lawyer.email}}">Send an email</a>
       </div>
     </div>
+    </div>
 </div>
+
 
 
 
