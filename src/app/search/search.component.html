@@ -1,0 +1,18 @@
+<form class="form-inline justify-content-center" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <label class="my-1 mr-2" for="city">City</label>
+  <select name="city" id="city" class="form-control my-1 mr-sm-2" ngModel required>
+    <option 
+      *ngFor="let city of (lawyersState | async).cities" 
+      [value]="city.id"
+      id="city">{{ city.name }}</option>
+  </select>
+  <label class="my-1 mr-2" for="competency">Competency</label>
+  <select name="competency" id="competency" class="form-control my-1 mr-sm-2" ngModel required>
+    <option 
+      *ngFor="let competency of (lawyersState | async).competencies" 
+      [value]="competency.id"
+      id="competency">{{ competency.name }}</option>
+  </select>
+  <button type="submit" class="btn btn-primary my-1" [disabled]="!f.valid">Search</button>
+</form>
+
